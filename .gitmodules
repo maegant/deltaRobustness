@@ -1,0 +1,4 @@
+[submodule "frost-multiimpact"]
+	path = frost-multiimpact
+	url = https://github.com/maegant/frost-multiimpact.git
+	branch = multiimpact
