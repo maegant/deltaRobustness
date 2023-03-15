@@ -1,0 +1,135 @@
+<!-- AMBER 2D Model Description                                         -->
+<robot name="amber3_PF">
+  <material name="red">
+    <color rgba="0 0 0.8 1"/>
+  </material>
+
+  <!-- Linkage Definitions -->
+  <link name="Torso">
+    <inertial>
+      <origin xyz="0 0 -0.28507"/>
+      <mass value="13"/>
+      <inertia ixx="0" ixy="0" ixz="0" iyy="0.1940" iyz="0" izz="0"/>
+    </inertial>
+    <visual>
+      <geometry>
+        <box size="0.1 0.1 0.5"/>
+      </geometry>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+    </visual>
+  </link>
+  <link name="LeftThigh">
+    <inertial>
+      <origin xyz="0.0 0.0 -0.1494" rpy= "0 0 0"/>
+      <mass value="3.4261"/>
+      <inertia ixx="0" ixy="0" ixz="0" iyy="0.0389" iyz="0" izz="0"/>
+    </inertial>
+    <visual>
+      <geometry>
+        <cylinder length="0.5" radius="0.02"/>
+      </geometry>
+      <origin xyz="0.0 -0.1 -0.25" rpy="0.0 0.0 0.0"/>
+    </visual>
+  </link>
+  <link name="LeftShin">
+    <inertial>
+      <origin xyz="0 0 -0.171885" rpy="0 0 0"/>
+      <mass value="0.85216"/>
+      <inertia ixx="0" ixy="0" ixz="0" iyy="0.019286025" iyz="0" izz="0"/>
+    </inertial>
+    <visual>
+      <geometry>
+        <cylinder length="0.5" radius="0.02"/>
+      </geometry>
+      <origin xyz="0.0 -0.1 -0.25" rpy="0 0 0"/>
+    </visual>
+  </link>
+  <link name="RightThigh">
+    <inertial>
+      <origin xyz="0.0 0.0 -0.1494" rpy= "0 0 0"/>
+      <mass value="3.4261"/>
+      <inertia ixx="0" ixy="0" ixz="0" iyy="0.0389" iyz="0" izz="0"/>
+    </inertial>
+    <visual>
+      <origin xyz="0.0 0.1 -0.25" rpy="0 0 0"/>
+      <geometry>
+        <cylinder length="0.5" radius="0.02"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="RightShin">
+    <inertial>
+      <origin xyz="0.0 0.0 -0.171885" rpy="0 0 0"/>
+      <mass value="0.85216"/>
+      <inertia ixx="0" ixy="0" ixz="0" iyy="0.019286025" iyz="0" izz="0"/>
+    </inertial>
+    <visual>
+      <origin xyz="0.0 0.0 -0.1504" rpy="0 0 0"/>
+      <geometry>
+        <cylinder length="0.5" radius="0.02"/>
+      </geometry>
+    </visual>
+  </link>
+
+
+  <!-- Joint Definitions -->
+  <joint name="LeftHip" type="revolute">
+    <parent link="Torso"/>
+    <child link="LeftThigh"/>
+    <origin xyz="0 0 -0.4999" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit effort="400.0" lower="-1.6" upper="1.6" velocity="4"/>
+  </joint>
+  <joint name="LeftKnee" type="revolute">
+    <parent link="LeftThigh"/>
+    <child link="LeftShin"/>
+    <origin xyz="0.0 0.0 -0.4064" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit effort="400.0" lower="0.1" upper="1.5" velocity="4"/>
+  </joint>
+    <joint name="RightHip" type="revolute">
+    <parent link="Torso"/>
+    <child link="RightThigh"/>
+    <origin xyz="0.0 0.0 -0.4999" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit effort="400.0" lower="-1.6" upper="1.6" velocity="4"/>
+  </joint>
+  <joint name="RightKnee" type="revolute">
+    <parent link="RightThigh"/>
+    <child link="RightShin"/>
+    <origin xyz="0.0 0.0 -0.4064" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit effort="400.0" lower="0.1" upper="1.5" velocity="5"/>
+  </joint>
+
+  
+  <!-- Robot Transmission Definitions -->
+  <transmission name="LeftHipTransmission">
+    <joint name="LeftHip"/>
+    <actuator>
+      <mechanicalReduction>91.4286</mechanicalReduction>
+      <motorInertia>0.000051</motorInertia>
+    </actuator>
+  </transmission>
+  <transmission name="LeftKneeTransmission">
+    <joint name="LeftKnee"/>
+    <actuator>
+      <mechanicalReduction>91.4286</mechanicalReduction>
+      <motorInertia>0.000051</motorInertia>
+    </actuator>
+  </transmission>
+  <transmission name="RightHipTransmission">
+    <joint name="RightHip"/>
+    <actuator>
+      <mechanicalReduction>91.4286</mechanicalReduction>
+      <motorInertia>0.000051</motorInertia>
+    </actuator>
+  </transmission>
+  <transmission name="RightKneeTransmission">
+    <joint name="RightKnee"/>
+    <actuator>
+      <mechanicalReduction>91.4286</mechanicalReduction>
+      <motorInertia>0.000051</motorInertia>
+    </actuator>
+  </transmission>
+</robot>
