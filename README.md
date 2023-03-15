@@ -7,6 +7,19 @@ The periodic orbits were generated using a modification of the FROST Toolbox ([M
 git clone --recursive https://github.com/maegant/deltaRobustness.git
 ```
 
+### Frost Setup
+To setup FROST, please follow the installation instructions on the FROST website (https://ayonga.github.io/frost-dev/pages/installation.html). This includes adding the following two lines to your ~/.bashrc (make sure to update the path with the version of Mathematica you have)
+```
+LD_LIBRARY_PATH=/usr/local/Wolfram/Mathematica/12.0/SystemFiles/Links/MathLink/DeveloperKit/Linux-x86-64/CompilerAdditions:$LD_LIBRARY_PATH
+LD_LIBRARY_PATH=/usr/local/Wolfram/Mathematica/12.0/SystemFiles/Links/WSTP/DeveloperKit/Linux-x86-64/CompilerAdditions:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH
+```
+
+You can test if you've properly setup FROST by running the following initialization function in MATLAB
+```
+>> frost_addpath();
+```
+
 ## Main Script
 To run the code, use the `main_script.m` script. I suggest running each section individually since some sections take several minutes to run and the figures may overwrite
 

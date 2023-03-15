@@ -3,7 +3,7 @@ frost_path = 'frost-multiimpact/';
 
 % initialize frost
 addpath(genpath(frost_path));
-% frost_addpath; % not needed since not synthesizing gaits
+frost_addpath; % not needed since not synthesizing gaits
 
 % add necessary folders to your search path:
 addpath(genpath('tools'));
